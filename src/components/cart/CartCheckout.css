@@ -1,0 +1,16 @@
+.totalAmount{
+  padding: 1.5rem 0;
+}
+.totalAmount>h4{
+  font-size: large;
+}
+
+.checkout-button{
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  background-color: #60b246;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}

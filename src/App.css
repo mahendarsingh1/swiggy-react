@@ -12,14 +12,16 @@ margin: 0;
 .inline{
     display: inline;
 }
-.margin-2{
+.margin-2-percent{
     margin: 2%;
 }
 .invert{
     filter: invert(100%);
 }
+.p-r-1{
+    padding-right: 1rem;
+}
 .border-r{
-    padding-right: 7px;
     border-right: 1px solid white;
 }
 .op-6{
@@ -48,6 +50,9 @@ margin: 0;
     align-items: center;
 }
   
-.w-90{
+.w-90-percent{
     width: 90%;
+}
+.cursor-pointer{
+    cursor: pointer;
 }

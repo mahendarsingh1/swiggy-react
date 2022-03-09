@@ -1,0 +1,20 @@
+.overview{
+  padding: 0.7rem;
+  margin: 1.5rem 3rem 1.5rem 6rem;
+  border-right: 1px solid rgb(226, 222, 222);
+}
+
+.overview>a{
+  margin: 1rem;
+  text-align: end;
+  font-size: 1.1rem;
+}
+.overview>a:hover{
+  color: #990606;
+  cursor: pointer;
+}
+.overview>a{
+  text-decoration: none;
+  color: black;
+  display: block;
+}

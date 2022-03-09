@@ -1,0 +1,14 @@
+.cart{
+  margin-left: 5rem;
+  width: 16%;
+}
+.cart>p{
+  font-size: 0.8rem;
+}
+.empty-cart-img{
+  margin-top: 3rem;
+  height: 14.75rem;
+}
+.uppercase{
+  text-transform: uppercase;
+}

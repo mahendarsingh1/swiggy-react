@@ -1,0 +1,28 @@
+.cartItem{
+  align-items: center;
+  padding: 1rem 0;
+}
+.cartItem>div>img{
+  margin: 0.2rem;
+}
+
+
+.quantityControllers{
+  --quantity-controllers-color : green;
+  font-size: 0.8rem;
+  width: 50px;
+  border: 1px solid rgb(179, 175, 175);
+  padding: 0.3rem;
+  margin: 0 1rem;
+}
+
+
+
+.quantityControllers>span{
+  font-size: 1.1rem;
+  color: var(--quantity-controllers-color);
+}
+
+.quantityControllers>span:hover{
+  cursor: pointer;
+}

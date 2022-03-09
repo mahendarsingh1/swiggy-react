@@ -1,16 +1,19 @@
 import React from "react";
-import FilterInput from './FilterInput'
-import inputData from "./constants/inputData";
+import SearchBox from '../../commonComponents/SearchBox'
+import Checkbox from "../../commonComponents/Checkbox/Checkbox";
+import IconWithLabel from '../../commonComponents/IconWithLabel';
+
+import FavouriteIcon from '../../assests/images/favourite.svg'
+
 import './FilterSection.css'
 
 function FilterSection(){
+
     return (
         <div className="filter-section">
-            {
-                inputData.map(item =>{
-                    return <FilterInput key={item.className} item={item}/>
-                })
-            }
+            <SearchBox placeholder="Search for Dishes" />
+            <Checkbox label="Veg Only"/>
+            <IconWithLabel icon={FavouriteIcon} label="Favourite"/>
         </div>
     )
 }
