@@ -1,0 +1,11 @@
+.hover-red:hover{
+    color: #f80808;
+}
+
+.child-img-invert img{
+    filter: invert(1);
+}
+
+.icon-with-label img{
+    height: 0.85rem;
+}

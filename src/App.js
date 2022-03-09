@@ -1,13 +1,21 @@
+import React from "react";
+
+// components
 import Header from "./components/header";
-import Breadcrumb from "./components/breadcrumb";
+import SubHeader from "./components/subHeader";
+import FilterSection from "./components/filterSection";
+
+// css
+import './app.css'
 
 function App() {
-  return (
-    <>
-      <Header/>
-      <Breadcrumb/>
-    </>
-  );
+    return (
+      <>
+        <Header/>
+        <SubHeader/>
+        <FilterSection/>
+      </>
+    );
 }
 
 export default App;

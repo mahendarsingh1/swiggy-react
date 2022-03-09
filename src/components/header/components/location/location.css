@@ -1,0 +1,15 @@
+.location{
+    margin-left: 0.7rem;
+}
+.location>span{
+    opacity: 0.5;
+}
+.location>ins{
+    font-weight:bold;
+}
+.location>img{
+    height: 0.8rem;
+}
+.location:hover>ins{
+    color: #ff0000;
+}

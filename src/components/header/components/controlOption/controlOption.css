@@ -1,0 +1,23 @@
+.h-0-9{
+    height: 0.9rem;
+}
+.control-options:hover>img{
+    filter:invert(16%) sepia(82%) saturate(7103%) hue-rotate(359deg) brightness(98%) contrast(113%);
+}
+.control-options:hover{
+    color: red;
+}
+.control-options{
+    padding: 0.7rem;
+    margin: 1.3rem;
+}
+.search{
+    margin-left: 21.5rem;
+}
+.superscript{
+    font-size: small;
+    color: orange;
+    position: relative;
+    bottom: 0.3rem;
+    text-transform: uppercase;
+}

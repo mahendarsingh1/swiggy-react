@@ -1,0 +1,10 @@
+.search-box>input{
+    border: none;
+    padding: 0.6rem;
+    padding-left: 0;
+    background-color: white;
+    font-size: 0.93rem;
+}
+.search-box>input:focus{
+    outline: none;
+}
