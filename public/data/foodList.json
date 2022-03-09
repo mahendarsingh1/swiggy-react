@@ -1,0 +1,140 @@
+{
+    "Starters": [
+        {
+            "id":1,
+            "heading":"Chilli Paratha",
+            "amount":203,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":2,
+            "heading":"Matar Paneer",
+            "amount":220,
+            "type":"nonveg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":3,
+            "heading":"Mix Veg",
+            "amount":400,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        }
+    ],
+    "Breakfast": [
+        {
+            "id":4,
+            "heading":"Achari Paneer Tikka",
+            "amount":100,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":5,
+            "heading":"Butter Binge Pack ",
+            "amount":240,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":6,
+            "heading":"Dhaniya Chicken Tikka",
+            "amount":250,
+            "type":"nonveg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        }
+    ],
+    "Premium": [
+        {
+            "id":7,
+            "heading":"Paneer Tikka Hariyali",
+            "amount":265,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":8,
+            "heading":"Paneer Malai Tikka",
+            "amount":500,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":9,
+            "heading":"Kadai Paneer",
+            "amount":230,
+            "type":"nonveg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        }
+    ],
+    "Combo": [
+        {
+            "id":10,
+            "heading":"Mix Veg",
+            "amount":250,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":11,
+            "heading":"Paneer Tikka Masala",
+            "amount":294,
+            "type":"nonveg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":12,
+            "heading":"Matar Paneer",
+            "amount":283,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        }
+    ],
+    "Big Thali": [
+        {
+            "id":13,
+            "heading":"Kadai Paneer",
+            "amount":229,
+            "type":"nonveg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":14,
+            "heading":"Chilli Paratha",
+            "amount":240,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":15,
+            "heading":"Palak Paneer",
+            "amount":260,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        }
+    ],
+    "Mixed Thali": [
+        {
+            "id":16,
+            "heading":"Kadai Mushroom",
+            "amount":210,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":17,
+            "heading":"Mushroom Masala",
+            "amount":280,
+            "type":"nonveg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        },
+        {
+            "id":18,
+            "heading":"Dal Tadka",
+            "amount":270,
+            "type":"veg",
+            "description":"Wheat paratha is tosed with choped onion, capcicum, chilli, garlic and soya souce"
+        }
+    ]
+}

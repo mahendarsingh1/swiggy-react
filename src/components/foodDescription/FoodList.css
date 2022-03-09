@@ -1,0 +1,13 @@
+.food-list{
+  width: 600px;
+  height: 620px;
+  overflow-y: auto;
+}
+.food-list>h2{
+  padding: 10px;
+  font-size: 28px;
+}
+.food-list>p{
+  padding-left: 10px;
+  font-size: 13px;
+}
