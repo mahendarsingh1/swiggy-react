@@ -1,0 +1,18 @@
+.food-list-item{
+  padding: 2rem 2rem 2rem 0.7rem;
+}
+
+.food-list-item-button{
+  width: 90px;
+  height: 35px;
+  color: var(--food-list-button-color);
+  background-color: white;
+  border: 1px solid rgb(179, 175, 175);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+.food-list-item-button:hover{
+  color: var(--food-list-button-hover-color);
+  box-shadow: 0 0 5px grey;
+  cursor: pointer;
+}

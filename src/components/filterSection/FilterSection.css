@@ -1,0 +1,16 @@
+.filter-section{
+  width: 40%;
+  margin: auto;
+  position: relative;
+  top: -15px;
+}
+
+.filter-inputs{
+  padding: 0.7rem 0.9rem;
+  margin: 0.6rem;
+  background-color: white;
+  box-shadow: 0 0.3rem 0.6rem 0 grey;
+}  
+.filter-inputs>img{
+  height: 13px;
+}

@@ -1,0 +1,10 @@
+.description-box img{
+    filter: invert(1);
+}
+.h-13{
+    height: 13px;
+}
+.description-box:not(:last-child){
+    border-right: 1px solid white;
+    padding-right: 1rem;
+}
