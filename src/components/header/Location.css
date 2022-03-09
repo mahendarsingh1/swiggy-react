@@ -1,0 +1,17 @@
+.location{
+    margin-left: 10px;
+    cursor: pointer;
+}
+.location>span{
+    opacity: 0.5;
+}
+.location>ins{
+    font-weight: 550;
+}
+.location>img{
+    height: 15px;
+}
+.location:hover>ins, .control_options:hover{
+    color: #ff0000;
+    cursor: pointer;
+}
