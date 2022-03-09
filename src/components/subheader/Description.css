@@ -1,0 +1,17 @@
+.description{
+  width: 550px;
+  margin: 2%;
+}
+.description-heading{
+  margin: 3% 0 3% 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
+}
+.description-address{
+  margin: 2% 0 2% 0;
+}
+
+.description-rating>img{
+  height: 12px;
+  filter: invert(1);
+}
