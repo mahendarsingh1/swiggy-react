@@ -2,14 +2,13 @@ import React from "react";
 
 function ControlOption(props){
 
-    const { item } = props;
-    const { className, img, label, superScript} = item;
+    const { item : {className, img, label, superScript} } = props;
 
     return (
-        <div className={`inline control_options ${className}`}>
+        <div className={`inline control_options cursor-pointer ${className}`}>
             <img src={img} alt={label} />
             {label}
-            <span>{superScript}</span>
+            {superScript && <span>{superScript}</span>}
         </div>
     )
 }

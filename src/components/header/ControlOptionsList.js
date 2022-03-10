@@ -1,14 +1,19 @@
 import React from "react";
 import ControlOption from "./ControlOption";
-import controlOptionsData from "./constants/controlOptionsData";
 import './ControlOptionsList.css'
 
-function ControlOptionsList(){
+
+function ControlOptionsList(props){
+
+    const { controlOptionsData } = props;
+
+    const list = controlOptionsData.map((item)=>{
+                    return <ControlOption key={item.label} item={item} />
+                })
+
     return (
         <>
-            {controlOptionsData.map((item)=>{
-                return <ControlOption key={item.label} item={item} />
-            })}
+            {list}
         </>
     )
 }

@@ -1,8 +1,6 @@
 const breadcrumbData = {
-    home : "Home ",
-    city : "Bangalore ",
-    layout : "BTM - Bangalore ",
-    shop : "Kitchens of Punjab"
+    path : ["Home ", "Bangalore ", "BTM - Bangalore "],
+    target : "Kitchens of Punjab"
 }
 
 export default breadcrumbData;

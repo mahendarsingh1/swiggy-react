@@ -1,17 +1,16 @@
 import React from "react";
 import './Breadcrumb.css';
-import breadcrumbData from './constants/breadcrumbData'
 
-function Breadcrumb(){
+function Breadcrumb(props){
 
-    const {home, city, layout, shop} = breadcrumbData;
+    const { breadcrumbData : {path, target} } = props;
+
+    const breadcrumbPath = path.map(item => <span key={item}>{`${item} /`}</span>)
 
     return (
         <div className="breadcrumb">
-            <span>{home} </span> /
-            <span>{city} </span> /
-            <span>{layout} </span> /
-            {shop}
+            { breadcrumbPath }
+            { target }
         </div>
     )
 }

@@ -1,15 +1,15 @@
 import React from "react";
-import locationData from './constants/locationData'
+import dropDownIcon from '../../assests/images/dropdown.svg'
 import './Location.css';
 
-function Location(){
+function Location(props){
 
-    const {name, address, img, imgAlt } = locationData;
+    const { locationData : {name, address} } = props;
 
-    return <div className="location inline">
-            <ins>{name}</ins> 
+    return <div className="location inline cursor-pointer">
+            <ins>{name}</ins> {' '}
             <span>{address}</span>
-            <img src={img} alt={imgAlt}/>
+            <img src={dropDownIcon} alt="Dropdown" />
         </div>
 }
 
