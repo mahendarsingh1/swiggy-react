@@ -1,0 +1,13 @@
+.breadcrumb{
+    background-color: #e8e9ed;
+    font-size: 80%;
+    padding: 3px;
+    padding-left: 15%;
+}
+.breadcrumb>span{
+    cursor: pointer;
+    opacity: 0.6;
+}
+.breadcrumb>span:hover{
+    opacity: 1;
+}
