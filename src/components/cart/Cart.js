@@ -1,6 +1,6 @@
 import React from "react";
 import EmptyCart from './EmptyCart'
-import FilledCart from "./FilledCart";
+import FilledCart from "./components/FilledCart";
 import './Cart.css'
 
 function Cart(props){

@@ -1,18 +1,15 @@
 import React from "react";
-import CartCheckout from "./CartCheckout";
-import CartItemsList from "./CartItemsList";
+import CartCheckout from "../CartCheckout";
+import CartItemsList from "../../CartItemsList";
 
+import getItemStringUsingCount from "../../../../helpers/getItemStringCount";
 
 function FilledCart(props){
 
     const { cartData, handleQuantityUpdate, handleClearCart } = props;
 
-    const totalQuantity = cartData.reduce((sum, item) => sum+item.quantity, 0)
+    const totalQuantity = cartData.reduce((sum, item) => sum+item.quantity, 0);
 
-    function getItemStringUsingCount(data){
-        return data.length===1 ? 'item' : 'items';
-    }
-    
     return(
         <>
             <h2>Cart</h2>

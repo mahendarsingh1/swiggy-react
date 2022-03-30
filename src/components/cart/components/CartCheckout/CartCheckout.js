@@ -1,7 +1,7 @@
 import React from "react";
-import currencySymbol from "../../constants/currency";
-import { saveItem as saveItemToLocalStorage } from '../../helpers/localStorage'
-import localStorageCartKey from '../../constants/localStorageCartKey'
+import currencySymbol from "../../../../constants/currency";
+import { saveItem as saveItemToLocalStorage } from '../../../../helpers/localStorage'
+import localStorageCartKey from '../../../../constants/localStorageCartKey'
 import './CartCheckout.css';
 
 function CartCheckout(props){

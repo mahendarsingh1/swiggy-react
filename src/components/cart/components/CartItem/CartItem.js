@@ -1,5 +1,5 @@
 import React from "react";
-import currencySymbol from "../../constants/currency";
+import currencySymbol from "../../../../constants/currency";
 import './CartItem.css'
 
 import img from '../../assests/images/symbol.svg'

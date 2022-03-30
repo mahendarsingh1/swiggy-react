@@ -1,20 +1,22 @@
 import React from "react";
 import PropTypes from 'prop-types'
 
+import getItemStringUsingCount from '../../../../helpers/getItemStringCount'
+
 import FoodListItem from "../FoodListItem";
 
 function FoodListSection(props){
 
-    const { items, category } = props;
+    const { items, category, handleAddToCart } = props;
 
     const list = items.map(function getFoodListItemJsxFromItem(item){
-                    return <FoodListItem key={item.id} item={item} /> 
+                    return <FoodListItem key={item.id} item={item} category={category} handleAddToCart={handleAddToCart} /> 
                 })
 
     return (
         <>
             <h2 id={category}>{category}</h2>
-            <p className="op-9">{items.length} {items.length===1 ? "ITEM" : "ITEM"}</p>
+            <p className="op-9 uppercase">{items.length} {getItemStringUsingCount(items)}</p>
             {list}
         </>
     )
