@@ -1,8 +1,8 @@
-import searchIcon from '../../../assests/images/search.svg'
-import offersIcon from '../../../assests/images/offers.svg'
-import helpIcon from '../../../assests/images/help.svg'
-import signInIcon from '../../../assests/images/signin.svg'
-import cartIcon from '../../../assests/images/cart.svg'
+import searchIcon from '../../../assets/images/search.svg'
+import offersIcon from '../../../assets/images/offers.svg'
+import helpIcon from '../../../assets/images/help.svg'
+import signInIcon from '../../../assets/images/signin.svg'
+import cartIcon from '../../../assets/images/cart.svg'
 
 export const controlOptionsData = [
     {
@@ -14,7 +14,7 @@ export const controlOptionsData = [
         className:"offers", 
         img:offersIcon,
         label:"Offers",
-        superScript:"NEW"
+        superScript:"new"
     },
     {
         img:helpIcon,
@@ -33,4 +33,9 @@ export const controlOptionsData = [
 export const locationData = {
     name : "Sevashrama",
     address : "Bangalore Railway Station",
+}
+
+export const breadcrumbData = {
+    path : ["Home ", "Bangalore ", "BTM - Bangalore "],
+    target : "Kitchens of Punjab"
 }

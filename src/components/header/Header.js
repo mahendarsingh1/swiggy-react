@@ -1,11 +1,16 @@
-import React from "react";
-import Location from "./Location";
-import logo from '../../assests/images/swiggy.svg'
-import ControlOptionsList from "./ControlOptionsList";
+// components
+import Location from "./components/location";
+import ControlOptionsList from "./components/controlOptionsList";
 import BreadCrumb from '../breadcrumb'
-import breadcrumbData from '../breadcrumb/constants/breadcrumbData'
-import { controlOptionsData, locationData } from './constants/headerConfig'
-import './Header.css'
+
+// icon
+import logo from '../../assets/images/swiggy.svg'
+
+// constants
+import { controlOptionsData, locationData, breadcrumbData } from './constants/headerConfig'
+
+// css
+import './header.css'
 
 function Header(){
 

@@ -1,11 +1,19 @@
-import React from "react";
-import './Breadcrumb.css';
+// libraries
+import PropTypes from 'prop-types'
+import _ from 'lodash'
+
+// css
+import './breadcrumb.css';
+
+function getBreadcrumbItemJsx(item,index){
+    return <span key={item+index}>{`${item} /`}</span>;
+}
 
 function Breadcrumb(props){
 
     const { breadcrumbData : {path, target} } = props;
 
-    const breadcrumbPath = path.map(item => <span key={item}>{`${item} /`}</span>)
+    const breadcrumbPath = _.map(path, getBreadcrumbItemJsx);
 
     return (
         <div className="breadcrumb">
@@ -13,6 +21,20 @@ function Breadcrumb(props){
             { target }
         </div>
     )
+}
+
+Breadcrumb.propTypes = {
+    breadcrumbData : PropTypes.shape({
+        path : PropTypes.arrayOf(PropTypes.string),
+        target : PropTypes.string
+    })
+}
+
+Breadcrumb.defaultProps = {
+    breadcrumbData : {
+        path : ['path'],
+        target : 'target'
+    }
 }
 
 export default Breadcrumb;
