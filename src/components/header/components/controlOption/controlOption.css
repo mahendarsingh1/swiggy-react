@@ -1,19 +1,20 @@
-.control_options>img{
-    height: 18px;
+.h-0-9{
+    height: 0.9rem;
 }
 .control_options:hover>img{
     filter:invert(16%) sepia(82%) saturate(7103%) hue-rotate(359deg) brightness(98%) contrast(113%);
 }
 .control_options{
-    padding: 10px;
-    margin: 20px;
+    padding: 0.7rem;
+    margin: 1.3rem;
 }
 .search{
     margin-left: 20%;
 }
-.offers>span{
+.superscript{
     font-size: small;
     color: orange;
     position: relative;
-    bottom: 5px;
+    bottom: 0.3rem;
+    text-transform: uppercase;
 }

@@ -1,5 +1,5 @@
 .location{
-    margin-left: 10px;
+    margin-left: 0.7rem;
 }
 .location>span{
     opacity: 0.5;
@@ -8,7 +8,7 @@
     font-weight:bold;
 }
 .location>img{
-    height: 15px;
+    height: 0.8rem;
 }
 .location:hover>ins, .control_options:hover{
     color: #ff0000;
