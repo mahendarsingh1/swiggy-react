@@ -1,6 +1,9 @@
 // Library
 import PropTypes from 'prop-types'
 
+// components
+import Icon from '../icon'
+
 // icon
 import searchIcon from '../../assets/images/search.svg'
 
@@ -13,7 +16,7 @@ function SearchBox(props){
 
     return(
         <div className={className}>
-            {icon && <img src={icon} alt="search" />}
+            <Icon src={icon} alt="search" />
             {" "}
             <input type="text" placeholder={placeholder}/>
         </div>

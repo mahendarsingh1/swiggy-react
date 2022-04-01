@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 // components
 import DescriptionBoxList from "../descriptionBoxList";
-import DescriptionAddress from "../descriptionAddress";
+import DescriptionHeading from "../descriptionHeading";
 
 // css
 import './description.css'
@@ -11,18 +11,18 @@ import './description.css'
 
 function Description(props){
 
-    const { restaurantInfo, address } = props;
+    const { restaurantInfo, additionalInfo } = props;
 
     return (
         <div className="description inline">
-            <DescriptionAddress address={address} />
-            <DescriptionBoxList restaurantInfo={restaurantInfo}/>
+            <DescriptionHeading restaurantInfo={restaurantInfo} />
+            <DescriptionBoxList additionalInfo={additionalInfo}/>
         </div>
     )
 }
 
 Description.propTypes = {
-    restaurantInfo : PropTypes.shape({
+    additionalInfo : PropTypes.shape({
         ratingInfo : PropTypes.shape({
             rating : PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
             ratingCount : PropTypes.oneOfType([PropTypes.string,PropTypes.number])
@@ -33,7 +33,7 @@ Description.propTypes = {
             peopleCount : PropTypes.oneOfType([PropTypes.string, PropTypes.number])
         })
     }),
-    address : PropTypes.shape({
+    restaurantInfo : PropTypes.shape({
         name : PropTypes.string,
         type : PropTypes.string,
         city : PropTypes.string
@@ -52,7 +52,7 @@ Description.defaultProps = {
           peopleCount: "two"
         }
     },
-    address : {
+    additionalInfo : {
         name : "Restaurant Name",
         type : "North Indian",
         city : "Bangalore"

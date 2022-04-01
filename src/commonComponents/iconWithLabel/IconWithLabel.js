@@ -1,6 +1,9 @@
 // Library
 import PropTypes from 'prop-types'
 
+// component
+import Icon from '../icon'
+
 // css
 import './iconWithLabel.css'
 
@@ -10,7 +13,7 @@ function IconWithLabel(props){
 
     return(
         <div className={`icon-with-label ${className}`}>
-            {icon && <img src={icon} alt={label} />}
+            <Icon src={icon} alt={label} />
             {" "}
             {label}
         </div>

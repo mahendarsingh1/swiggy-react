@@ -1,0 +1,1 @@
+export const RESTAURANT_DATA_END_POINT = "restaurantDetails";

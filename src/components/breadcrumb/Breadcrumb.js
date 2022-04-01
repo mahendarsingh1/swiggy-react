@@ -1,19 +1,21 @@
 // libraries
 import PropTypes from 'prop-types'
-import _ from 'lodash'
+
+// lodash
+import _map from 'lodash/map'
 
 // css
 import './breadcrumb.css';
 
 function getBreadcrumbItemJsx(item,index){
-    return <span key={item+index}>{`${item} /`}</span>;
+    return <span key={item+index}>{item} /</span>;
 }
 
 function Breadcrumb(props){
 
     const { breadcrumbData : {path, target} } = props;
 
-    const breadcrumbPath = _.map(path, getBreadcrumbItemJsx);
+    const breadcrumbPath = _map(path, getBreadcrumbItemJsx);
 
     return (
         <div className="breadcrumb">

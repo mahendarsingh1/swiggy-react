@@ -1,6 +1,9 @@
 // prop types
 import PropTypes from 'prop-types';
 
+// components
+import Icon from '../../../../commonComponents/icon'
+
 // css
 import './controlOption.css'
 
@@ -11,7 +14,7 @@ function ControlOption(props){
 
     return (
         <div className={`inline control-options cursor-pointer ${className}`}>
-            {img && <img src={img} alt={label} className='h-0-9'/>}
+            <Icon src={img} alt={label} className='h-0-9'/>
             {' '}
             {label}
             {superScript && <span className='superscript'>{superScript}</span>}

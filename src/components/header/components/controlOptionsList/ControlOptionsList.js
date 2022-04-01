@@ -21,7 +21,12 @@ function ControlOptionsList(props){
 }
 
 ControlOptionsList.propTypes = {
-    controlOptionsData : PropTypes.arrayOf(PropTypes.object)
+    controlOptionsData : PropTypes.arrayOf(PropTypes.shape({
+        className : PropTypes.string,
+        img : PropTypes.string,
+        label : PropTypes.string,
+        superScript : PropTypes.string
+    }))
 }
 
 ControlOptionsList.defaultProps = {

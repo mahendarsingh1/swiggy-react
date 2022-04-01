@@ -2,14 +2,14 @@
 import _property from 'lodash/property';
 
 const restaurantImg = _property('restaurantImg');
-const address = _property('address')
+const additionalInfo = _property('additionalInfo')
 const restaurantInfo = _property('restaurantInfo')
 const offers = _property('offers')
 
 
 const subHeaderReader = {
     restaurantImg,
-    address,
+    additionalInfo,
     restaurantInfo,
     offers
 }

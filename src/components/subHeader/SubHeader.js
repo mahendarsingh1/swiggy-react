@@ -35,12 +35,16 @@ class SubHeader extends React.Component{
   }
   
   setRestaurantDetails = (restaurantData) =>{
-    this.setState({ restaurantDetails : restaurantData });
+    const { restaurantDetails } = restaurantData;
+    this.setState({ restaurantDetails });
   }
 
   setErrorMessage = (err) =>{
     let { message } = err;
-    if(!message)  message = GENERAL_ERROR_MESSAGE;
+    
+    if(!message)  {
+      message = GENERAL_ERROR_MESSAGE;
+    }
 
     this.setState({ error : message})
   }
@@ -61,14 +65,14 @@ class SubHeader extends React.Component{
     }
 
     const restaurantImg = subHeaderReader.restaurantImg(restaurantDetails);
-    const address = subHeaderReader.address(restaurantDetails);
+    const additionalInfo = subHeaderReader.additionalInfo(restaurantDetails);
     const restaurantInfo = subHeaderReader.restaurantInfo(restaurantDetails);
     const offers = subHeaderReader.offers(restaurantDetails);
 
     return (
       <div className="subheader flex align-items-center">
         <img src={restaurantImg} alt="Restaurant"/>
-        <Description address={address} restaurantInfo={restaurantInfo} />
+        <Description restaurantInfo={restaurantInfo} additionalInfo={additionalInfo} />
         <OfferSection offers={offers} />
       </div>  
     );

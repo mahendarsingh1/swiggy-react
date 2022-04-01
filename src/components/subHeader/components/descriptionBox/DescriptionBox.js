@@ -1,6 +1,9 @@
 // Libraries
 import PropTypes from 'prop-types'
 
+// components
+import Icon from '../../../../commonComponents/icon';
+
 // css
 import './descriptionBox.css'
 
@@ -11,7 +14,7 @@ function DescriptionBox(props){
 
     return (
         <div className="description-box margin-2-percent">
-            {icon && <img src={icon} alt={heading} className="h-0-8" />}
+            <Icon src={icon} alt={heading} className="h-0-8" />
             {" "}
             <h4 className="inline">{heading}</h4>
             <p className="op-6">{subtitle}</p>

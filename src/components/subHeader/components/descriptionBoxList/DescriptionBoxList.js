@@ -15,13 +15,13 @@ import rupee from '../../../../assets/images/rupee.svg'
 
 function DescriptionBoxList(props){
 
-    const { restaurantInfo } = props;
+    const { additionalInfo } = props;
 
-    const rating = descriptionReader.rating(restaurantInfo)
-    const ratingCount = descriptionReader.ratingCount(restaurantInfo)
-    const deliveryTime =  descriptionReader.deliveryTime(restaurantInfo)
-    const cost = descriptionReader.cost(restaurantInfo)
-    const peopleCount = descriptionReader.peopleCount(restaurantInfo)
+    const rating = descriptionReader.rating(additionalInfo)
+    const ratingCount = descriptionReader.ratingCount(additionalInfo)
+    const deliveryTime =  descriptionReader.deliveryTime(additionalInfo)
+    const cost = descriptionReader.cost(additionalInfo)
+    const peopleCount = descriptionReader.peopleCount(additionalInfo)
 
     return(
         <div className="flex">
@@ -33,7 +33,7 @@ function DescriptionBoxList(props){
 }
 
 DescriptionBoxList.propTypes = {
-    restaurantInfo : PropTypes.shape({
+    additionalInfo : PropTypes.shape({
         ratingInfo : PropTypes.shape({
             rating : PropTypes.oneOfType([PropTypes.string,PropTypes.number]),
             ratingCount : PropTypes.oneOfType([PropTypes.string,PropTypes.number])

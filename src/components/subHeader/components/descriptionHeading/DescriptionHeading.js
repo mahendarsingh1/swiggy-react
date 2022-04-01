@@ -2,16 +2,16 @@
 import PropTypes from 'prop-types'
 
 // reader
-import addressReader from "../../readers/addressReader";
+import descriptionHeadingReader from "../../readers/descriptionHeadingReader";
 
 
 function DescriptionAdress(props){
 
-    const { address } = props;
+    const { restaurantInfo } = props;
 
-    const name = addressReader.name(address);
-    const type = addressReader.type(address);
-    const city = addressReader.city(address);
+    const name = descriptionHeadingReader.name(restaurantInfo);
+    const type = descriptionHeadingReader.type(restaurantInfo);
+    const city = descriptionHeadingReader.city(restaurantInfo);
     
     return (
         <>
@@ -23,7 +23,7 @@ function DescriptionAdress(props){
 }
 
 DescriptionAdress.propTypes = {
-    address : PropTypes.shape({
+    restaurantInfo : PropTypes.shape({
         name : PropTypes.string,
         type : PropTypes.string,
         city : PropTypes.string
@@ -31,7 +31,7 @@ DescriptionAdress.propTypes = {
 }
 
 DescriptionAdress.defaultProps = {
-    address : {
+    restaurantInfo : {
         name : "Restaurant Name",
         type : "North Indian",
         city : "Bangalore"

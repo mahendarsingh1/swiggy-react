@@ -5,10 +5,10 @@ const name = _property('name');
 const type = _property('type');
 const city = _property('city');
 
-const addressReader = {
+const descriptionHeadingReader = {
     name,
     type,
     city
 }
 
-export default addressReader;
+export default descriptionHeadingReader;
