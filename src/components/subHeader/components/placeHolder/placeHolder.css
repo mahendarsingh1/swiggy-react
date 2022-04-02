@@ -1,0 +1,10 @@
+.place-holder img{
+    filter: invert(1);
+}
+.h-0-8{
+    height: 0.8rem;
+}
+.place-holder:not(:last-child){
+    border-right: 1px solid white;
+    padding-right: 1rem;
+}

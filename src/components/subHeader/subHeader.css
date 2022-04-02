@@ -1,0 +1,9 @@
+.subheader{
+  color: white;
+  background-color: black;
+  padding: 0 10rem;
+  justify-content: space-evenly;
+}
+.subheader>img{
+  height: 10.625rem;
+}

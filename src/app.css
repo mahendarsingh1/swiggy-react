@@ -1,0 +1,54 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:Arial, sans-serif;
+    --food-list-button-color : green;
+    --food-list-button-hover-color : red;
+}
+.flex{
+    display: flex;
+}
+.inline{
+    display: inline;
+}
+.margin-1{
+    margin: 1rem;
+}
+.invert{
+    filter: invert(100%);
+}
+.p-r-1{
+    padding-right: 1rem;
+}
+.border-r{
+    border-right: 1px solid white;
+}
+.op-6{
+    opacity: 0.6;
+}
+.op-9{
+    opacity: 0.9;
+}
+.m-tb-0-5{
+    margin: 0.5rem 0;
+}
+.flex-space-between{
+    display: flex;
+    justify-content: space-between;
+}
+.h-1{
+    height: 1rem;
+}
+  
+.flex-space-around{
+    justify-content: space-around;
+} 
+
+.align-items-center{
+    align-items: center;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}

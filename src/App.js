@@ -1,11 +1,19 @@
+import React from "react";
+
+// components
 import Header from "./components/header";
+import SubHeader from "./components/subHeader";
+
+// css
+import './app.css'
 
 function App() {
-  return (
-    <>
-      <Header/>
-    </>
-  );
+    return (
+      <>
+        <Header/>
+        <SubHeader/>
+      </>
+    );
 }
 
 export default App;

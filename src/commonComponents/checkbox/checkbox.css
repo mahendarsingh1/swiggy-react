@@ -1,0 +1,7 @@
+input[type="checkbox"]{
+    outline: black;
+    margin-right: 0.2rem;
+}
+.hover-green:hover{
+    color: green;
+}
