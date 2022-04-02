@@ -1,19 +1,19 @@
 // Libraries
 import PropTypes from 'prop-types'
-import _ from 'lodash'
+import _map from 'lodash/map'
 
 // component
 import ControlOption from "../controlOption";
 
 function getControlOptionJsx(item, index){
-    return <ControlOption key={item.label+index} item={item} />
+    return <ControlOption key={item.label+index} {...item} />
 }
 
 function ControlOptionsList(props){
 
     const { controlOptionsData } = props;
 
-    const list = _.map(controlOptionsData, getControlOptionJsx)
+    const list = _map(controlOptionsData, getControlOptionJsx)
 
     return (
         <> {list} </>
@@ -21,15 +21,21 @@ function ControlOptionsList(props){
 }
 
 ControlOptionsList.propTypes = {
-    controlOptionsData : PropTypes.arrayOf(PropTypes.object)
+    controlOptionsData : PropTypes.arrayOf(PropTypes.shape({
+        className : PropTypes.string,
+        img : PropTypes.string,
+        label : PropTypes.string,
+        superScript : PropTypes.string
+    }))
 }
 
 ControlOptionsList.defaultProps = {
     controlOptionsData : [
         {
             className:"search",
-            img: null,
-            label:"Search"
+            img: undefined,
+            label:"Search",
+            superScript : undefined
         }
     ]
 }

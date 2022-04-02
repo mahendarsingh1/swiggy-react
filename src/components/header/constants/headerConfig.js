@@ -11,7 +11,6 @@ export const controlOptionsData = [
         label:"Search"
     },
     {
-        className:"offers", 
         img:offersIcon,
         label:"Offers",
         superScript:"new"

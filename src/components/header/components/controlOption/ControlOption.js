@@ -1,17 +1,20 @@
 // prop types
 import PropTypes from 'prop-types';
 
+// components
+import Icon from '../../../../commonComponents/icon'
+
 // css
 import './controlOption.css'
 
 
 function ControlOption(props){
 
-    const { item : {className, img, label, superScript} } = props;
+    const  { className, img, label, superScript }  = props;
 
     return (
-        <div className={`inline control_options cursor-pointer ${className}`}>
-            {img && <img src={img} alt={label} className='h-0-9'/>}
+        <div className={`inline control-options cursor-pointer ${className}`}>
+            <Icon src={img} alt={label} className='h-0-9'/>
             {' '}
             {label}
             {superScript && <span className='superscript'>{superScript}</span>}
@@ -20,21 +23,17 @@ function ControlOption(props){
 }
 
 ControlOption.propTypes = {
-    item : PropTypes.shape({
-        className : PropTypes.string,
-        img : PropTypes.string,
-        label : PropTypes.string,
-        superScript : PropTypes.string
-    })
+    className : PropTypes.string,
+    img : PropTypes.string,
+    label : PropTypes.string,
+    superScript : PropTypes.string
 }
 
 ControlOption.defaultProps = {
-    item : {
-        className : '',
-        img : null,
-        label : 'label',
-        superScript : undefined
-    }
+    className : "",
+    img : undefined,
+    label : 'label',
+    superScript : undefined
 }
 
 export default ControlOption;
