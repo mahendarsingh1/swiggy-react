@@ -10,6 +10,6 @@
 .location>img{
     height: 0.8rem;
 }
-.location:hover>ins, .control_options:hover{
+.location:hover>ins{
     color: #ff0000;
 }

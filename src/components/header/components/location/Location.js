@@ -1,6 +1,9 @@
 // prop types
 import PropTypes from 'prop-types';
 
+// components
+import Icon from '../../../../commonComponents/icon';
+
 // icon
 import dropDownIcon from '../../../../assets/images/dropdown.svg';
 
@@ -16,7 +19,7 @@ function Location(props){
             {' '}
             <span>{address}</span>
             {' '}
-            <img src={dropDownIcon} alt="Dropdown" />
+            <Icon src={dropDownIcon} alt="Dropdown" />
         </div>
 }
 
