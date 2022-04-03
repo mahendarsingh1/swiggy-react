@@ -1,0 +1,9 @@
+.food-list-item{
+  padding: 2rem 2rem 2rem 0.7rem;
+}
+.upper-case{
+  text-transform: uppercase;
+}
+.p-r-2{
+  padding-right: 2rem;
+}

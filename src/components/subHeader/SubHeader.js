@@ -1,82 +1,64 @@
 // Libraries
-import React from "react";
+import PropTypes from 'prop-types'
 
 // components
 import Description from "./components/description";
-import OfferSection from './components/offerSection'
-import Loader from "../../commonComponents/loader";
-import ErrorHandler from '../../commonComponents/errorHandler'
-import FilterSection from '../filterSection'
+import OfferSection from './components/offerSection';
+import FilterSection from "../filterSection";
+import Icon from '../../commonComponents/icon'
 
 // readers
 import subHeaderReader from './readers/subHeaderReader'
 
-// constants
-import { INITIAL_STATE, DEFAULT_RESTAURANT_ID, GENERAL_ERROR_MESSAGE } from "./constants/subheader.general";
-
-// api
-import fetchRestaurantData from "../../api/fetchRestaurantData";
-
 // css
 import './subHeader.css'
 
-class SubHeader extends React.Component{
+function SubHeader(props) {
   
-  state = INITIAL_STATE;
+  const { restaurantDetails } = props;
 
-  componentDidMount(){
-    this.getSubheaderData();
-  }
+  const restaurantImg = subHeaderReader.restaurantImg(restaurantDetails);
+  const additionalInfo = subHeaderReader.additionalInfo(restaurantDetails);
+  const restaurantInfo = subHeaderReader.restaurantInfo(restaurantDetails);
+  const offers = subHeaderReader.offers(restaurantDetails);
 
-  getSubheaderData(){
-    fetchRestaurantData(DEFAULT_RESTAURANT_ID)
-    .then(this.setRestaurantDetails)
-    .catch(this.setErrorMessage)
-    .finally(this.setLoaded)
-  }
-  
-  setRestaurantDetails = (restaurantData) =>{
-    const { restaurantDetails } = restaurantData;
-    this.setState({ restaurantDetails });
-  }
+  return (
+    <>
+      <div className="subheader flex align-items-center">
+        <Icon src={restaurantImg} alt="Restaurant"/>
+        <Description restaurantInfo={restaurantInfo} additionalInfo={additionalInfo} />
+        <OfferSection offers={offers} />
+      </div>
+      <FilterSection/>
+    </>
+  );
+}
 
-  setErrorMessage = (err) =>{
-    const { message=GENERAL_ERROR_MESSAGE } = err;
+SubHeader.propTypes = {
+  restaurantDetails : PropTypes.shape({
+    restaurantImg : PropTypes.string,
+    additionalInfo : PropTypes.shape({
+      ratingInfo : PropTypes.shape({
+          rating : PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+          ratingCount : PropTypes.oneOfType([PropTypes.string,PropTypes.number])
+      }),
+      deliveryTime : PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+      costInfo : PropTypes.shape({
+          cost : PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+          peopleCount : PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+      })
+  }),
+  restaurantInfo : PropTypes.shape({
+      name : PropTypes.string,
+      type : PropTypes.string,
+      city : PropTypes.string
+  }),
+    offers : PropTypes.arrayOf(PropTypes.string)
+  })
+}
 
-    this.setState({ error : message})
-  }
-
-  setLoaded = () =>{
-    this.setState({ isLoading : false })
-  }
-
-  render(){
-    const { restaurantDetails, isLoading, error } = this.state;
-    
-    const restaurantImg = subHeaderReader.restaurantImg(restaurantDetails);
-    const additionalInfo = subHeaderReader.additionalInfo(restaurantDetails);
-    const restaurantInfo = subHeaderReader.restaurantInfo(restaurantDetails);
-    const offers = subHeaderReader.offers(restaurantDetails);
-    
-    if(isLoading){
-      return <Loader message="Loading..." color="red" />
-    }
-
-    if(error){
-      return <ErrorHandler message={error} />
-    }
-    
-    return (
-      <>
-        <div className="subheader flex align-items-center">
-          <img src={restaurantImg} alt="Restaurant"/>
-          <Description restaurantInfo={restaurantInfo} additionalInfo={additionalInfo} />
-          <OfferSection offers={offers} />
-        </div> 
-        <FilterSection/> 
-      </>
-    );
-  }
+SubHeader.defaultProps = {
+  restaurantDetails : {}
 }
 
 export default SubHeader;

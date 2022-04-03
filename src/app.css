@@ -3,8 +3,10 @@
     margin: 0;
     padding: 0;
     font-family:Arial, sans-serif;
-    --food-list-button-color : green;
-    --food-list-button-hover-color : red;
+    --primary-color : blue;
+    --secondary-color : green;
+    --red : red;
+    --orange : orange;
 }
 .flex{
     display: flex;

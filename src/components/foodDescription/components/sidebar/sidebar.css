@@ -1,0 +1,20 @@
+.sidebar{
+  padding: 0.7rem;
+  margin: 1.5rem 3rem 0 0;
+  border-right: 1px solid rgb(226, 222, 222);
+}
+
+.sidebar>a{
+  margin: 1.1rem;
+  text-align: end;
+  font-size: 1.1rem;
+}
+.sidebar>a:hover{
+  color: red;
+  cursor: pointer;
+}
+.sidebar>a{
+  text-decoration: none;
+  color: black;
+  display: block;
+}

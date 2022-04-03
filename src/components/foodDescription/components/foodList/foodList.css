@@ -1,0 +1,16 @@
+.food-list{
+  width: 37.5rem;
+  height: 38.75rem;
+  overflow-y: auto;
+}
+.food-list>h2{
+  padding: 0.6rem;
+  font-size: 1.8rem;
+}
+.food-list>p{
+  padding-left: 0.6rem;
+  font-size: 0.8rem;
+}
+.food-list::-webkit-scrollbar{
+  display: none;
+}
