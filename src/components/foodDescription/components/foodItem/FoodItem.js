@@ -1,6 +1,10 @@
 // Libraries
 import PropTypes from "prop-types";
 
+// lodash
+import _noop from "lodash/noop";
+import _has from "lodash/has";
+
 // readers
 import foodListItemReader from "../../readers/foodListItemReader";
 
@@ -10,13 +14,47 @@ import getFormattedAmount from "../../../../utility/getFormattedAmount";
 
 // components
 import Button, { TYPES } from "../../../../commonComponents/button/Button";
+import PlusMinusButton from "../../../../commonComponents/plusMinusButton/PlusMinusButton";
 
 // css
 import "./foodItem.css";
 
-function FoodListItem(props) {
-    const { item } = props;
+function renderButton(
+    id,
+    cartQuantities,
+    onAddToCart,
+    onIncrementClick,
+    onDecrementClick
+) {
+    const isItemPresentInCartQuantities = _has(cartQuantities, id);
+    if (isItemPresentInCartQuantities) {
+        const quantity = cartQuantities[id];
+        return (
+            <PlusMinusButton
+                data-id={id}
+                label={quantity}
+                onIncrement={onIncrementClick}
+                onDecrement={onDecrementClick}
+            />
+        );
+    } else {
+        return (
+            <Button
+                data-id={id}
+                type={TYPES.SECONDARY}
+                className="upper-case"
+                label="add"
+                onClick={onAddToCart}
+            />
+        );
+    }
+}
 
+function FoodItem(props) {
+    const { item, cartQuantities, onAddToCart, onIncrementClick, onDecrementClick } =
+        props;
+
+    const id = foodListItemReader.id(item);
     const name = foodListItemReader.name(item);
     const amount = foodListItemReader.amount(item);
     const description = foodListItemReader.description(item);
@@ -38,11 +76,13 @@ function FoodListItem(props) {
                             {getFormattedAmount(currency, amount)}
                         </p>
                     </div>
-                    <Button
-                        type={TYPES.SECONDARY}
-                        className="upper-case"
-                        label="add"
-                    />
+                    {renderButton(
+                        id,
+                        cartQuantities,
+                        onAddToCart,
+                        onIncrementClick,
+                        onDecrementClick
+                    )}
                 </div>
                 <p className="m-tb-0-5 op-6">{description}</p>
             </div>
@@ -51,7 +91,15 @@ function FoodListItem(props) {
     );
 }
 
-FoodListItem.propTypes = {
+FoodItem.defaultProps = {
+    item: {},
+    cartQuantities: {},
+    onAddToCart: _noop,
+    onIncrementClick: _noop,
+    onDecrementClick: _noop,
+};
+
+FoodItem.propTypes = {
     item: PropTypes.shape({
         id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         name: PropTypes.string,
@@ -60,10 +108,9 @@ FoodListItem.propTypes = {
         type: PropTypes.string,
         currency: PropTypes.string,
     }),
+    onAddToCart: PropTypes.func,
+    onIncrementClick: PropTypes.func,
+    onDecrementClick: PropTypes.func,
 };
 
-FoodListItem.defaultProps = {
-    item: {},
-};
-
-export default FoodListItem;
+export default FoodItem;

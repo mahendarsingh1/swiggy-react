@@ -39,10 +39,10 @@ class Sidebar extends React.Component {
 
     handleClick = (event) => {
         const { target: { innerText } } = event;
-        const { handleCategoryScroll } = this.props;
+        const { onCategoryClick } = this.props;
 
         this.setCurrentActiveCategory(innerText);
-        handleCategoryScroll(innerText);
+        onCategoryClick(innerText);
     };
 
     setCurrentActiveCategory = (category) => {
@@ -60,12 +60,12 @@ class Sidebar extends React.Component {
 
 Sidebar.propTypes = {
     categories: PropTypes.arrayOf(PropTypes.string),
-    handleCategoryScroll: PropTypes.func,
+    onCategoryClick: PropTypes.func,
 };
 
 Sidebar.defaultProps = {
     categories: [],
-    handleCategoryScroll: _noop,
+    onCategoryClick: _noop,
 };
 
 export default Sidebar;
