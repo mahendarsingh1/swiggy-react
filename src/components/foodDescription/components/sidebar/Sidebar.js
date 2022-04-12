@@ -1,38 +1,71 @@
 // Libraries
+import React from "react";
 import PropTypes from "prop-types";
 
 // lodash
 import _map from "lodash/map";
 import _startCase from "lodash/startCase";
 import _toLower from "lodash/toLower";
+import _noop from "lodash/noop";
+
+// components
+import Paragraph from "../../../../commonComponents/paragraph";
 
 // css
 import "./sidebar.css";
 
-function renderLinks(category, index) {
-    const href = `#${_toLower(category)}`;
-    const label = _startCase(category);
-    const key = `${category}${index}`;
-    return (
-        <a key={key} href={href}>
-            {label}
-        </a>
-    );
-}
+class Sidebar extends React.Component {
+    constructor(props) {
+        super(props);
+        const { categories } = this.props;
+        this.state = {
+            currentActiveCategory: _toLower(categories[0]),
+        };
+    }
 
-function Sidebar(props) {
-    const { categories } = props;
-    const links = _map(categories, renderLinks);
+    renderParagraph = (category) => {
+        const { currentActiveCategory } = this.state;
+        const isActive = currentActiveCategory === _toLower(category);
 
-    return <div className="sidebar">{links}</div>;
+        return (
+            <Paragraph
+                key={category}
+                label={_startCase(category)}
+                isActive={isActive}
+                handleClick={this.handleClick}
+            />
+        );
+    };
+
+    handleClick = (event) => {
+        const { target: { innerText } } = event;
+        const { handleCategoryScroll } = this.props;
+
+        this.setCurrentActiveCategory(innerText);
+        handleCategoryScroll(innerText);
+    };
+
+    setCurrentActiveCategory = (category) => {
+        this.setState({ currentActiveCategory: _toLower(category) });
+    };
+
+    render() {
+        const { categories } = this.props;
+
+        const links = _map(categories, this.renderParagraph);
+
+        return <div className="sidebar">{links}</div>;
+    }
 }
 
 Sidebar.propTypes = {
     categories: PropTypes.arrayOf(PropTypes.string),
+    handleCategoryScroll: PropTypes.func,
 };
 
 Sidebar.defaultProps = {
     categories: [],
+    handleCategoryScroll: _noop,
 };
 
 export default Sidebar;

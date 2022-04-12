@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 // lodash
 import _map from "lodash/map";
 import _toLower from "lodash/toLower";
+import _noop from 'lodash/noop'
 
 // components
 import FoodItem from "../foodItem";
@@ -16,29 +17,30 @@ function renderFoodItem(item) {
 }
 
 function FoodListSection(props) {
-    const { items, heading } = props;
+    const { items, heading, setRef } = props;
 
     const foodItems = _map(items, renderFoodItem);
 
     return (
         <>
-            <h2 id={_toLower(heading)}>{heading}</h2>
-            <p className="op-9 upper-case">
-                {getFormattedItemsString(items.length)}
-            </p>
+            <h2 id={_toLower(heading)} ref={setRef}>{heading}</h2>
+            <p className="op-9 upper-case">{getFormattedItemsString(items.length)}</p>
             {foodItems}
         </>
     );
 }
 
 FoodListSection.propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object),
-    category: PropTypes.string,
-};
+    items : PropTypes.arrayOf(PropTypes.object),
+    category : PropTypes.string,
+    setRef : PropTypes.func
+}
 
 FoodListSection.defaultProps = {
-    items: [],
-    category: "category",
-};
+    items : [],
+    category : "category",
+    setRef : _noop
+}
+
 
 export default FoodListSection;

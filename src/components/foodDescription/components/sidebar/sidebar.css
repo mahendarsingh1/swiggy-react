@@ -4,17 +4,19 @@
   border-right: 1px solid rgb(226, 222, 222);
 }
 
-.sidebar>a{
+.sidebar>p{
   margin: 1.1rem;
   text-align: end;
   font-size: 1.1rem;
-}
-.sidebar>a:hover{
-  color: red;
-  cursor: pointer;
-}
-.sidebar>a{
   text-decoration: none;
   color: black;
   display: block;
+  cursor: pointer;
+}
+.sidebar>p:hover{
+  color: red;
+}
+.sidebar>p.active{
+  color: red;
+  transform: scale(1.1);
 }
