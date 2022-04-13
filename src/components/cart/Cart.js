@@ -46,7 +46,11 @@ function Cart(props) {
                 <h4>SubTotal</h4>
                 <h4>{getFormattedAmount("INR", totalAmount)}</h4>
             </div>
-            <Button label="CHECKOUT →" className="checkout-button" onClick={onCheckoutClick} />
+            <Button
+                label="CHECKOUT →"
+                className="checkout-button"
+                onClick={onCheckoutClick}
+            />
         </>
     );
 }
