@@ -1,5 +1,6 @@
 // React
 import { useMemo, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Libraries
 import React from "react";
@@ -19,20 +20,14 @@ import IconWithLabel from "../../commonComponents/iconWithLabel";
 
 // helpers
 import {
-    getCartItems,
-    getTotalFromCartItems,
     incrementQuantity,
-    decrementQuantity
+    decrementQuantity,
 } from "./helpers/foodDescription.general";
+import postCartDetails from "../../api/postCartItems";
 
 // constants
-import {
-    CART_ITEMS,
-    EMPTY_CART_DESCRIPTION,
-} from "./constants/foodDescription.general";
-
-// utility
-import saveToLocalStorage from "../../utility/saveToLocalStorage";
+import { EMPTY_CART_DESCRIPTION } from "./constants/foodDescription.general";
+import { THANKYOU } from "../../constants/routes";
 
 // icons
 import emptyCartImage from "../../assets/images/cartEmpty.webp";
@@ -47,6 +42,7 @@ function FoodDescription(props) {
     const foodListSectionRefs = useRef([]);
 
     const [cartQuantities, setCartQuantities] = useState({});
+    const navigate = useNavigate();
 
     function setRef(ele) {
         if (!foodListSectionRefs.current.includes(ele)) {
@@ -68,7 +64,6 @@ function FoodDescription(props) {
             },
         } = event;
         setCartQuantities({ ...cartQuantities, [id]: 1 });
-        
     }
 
     function handleIncrementClick(event) {
@@ -95,11 +90,22 @@ function FoodDescription(props) {
         setCartQuantities(updatedState);
     }
 
+    function handlePostCartItems(cartDetails) {
+        postCartDetails(cartDetails)
+            .then(handlePostCartItemsSuccess)
+            .catch(handlePostCartItemsError);
+    }
+
+    function handlePostCartItemsSuccess() {
+        navigate(THANKYOU);
+    }
+
+    function handlePostCartItemsError(error) {
+        console.log(error);
+    }
+
     function handleCheckoutClick() {
-        const items = getCartItems(cartQuantities, foodList);
-        const amount = getTotalFromCartItems(items);
-        const cartItemsData = { amount, items };
-        saveToLocalStorage(CART_ITEMS, cartItemsData);
+        handlePostCartItems(cartQuantities);
         clearCart();
     }
 

@@ -1,5 +1,5 @@
 // constants
-const BASE_URL = 'https://json-server-swiggy.herokuapp.com';
+import BASE_URL from "./baseURL";
 
 function handleRestaurantDataSuccess(res){
     return res.json();
