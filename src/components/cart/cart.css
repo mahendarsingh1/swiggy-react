@@ -1,0 +1,30 @@
+.cart{
+  margin-left: 5rem;
+  width: 17rem;
+}
+.cart>p{
+  font-size: 0.8rem;
+}
+.uppercase{
+  text-transform: uppercase;
+}
+.totalAmount{
+  padding: 1.3rem 0;
+}
+.totalAmount>h4{
+  font-size: large;
+}
+.checkout-button{
+  height: 2.5rem;
+  width: 17rem;
+  padding: 0.9rem;
+  border: none;
+  background-color: #60b246;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+.checkout-button:hover{
+  color: white;
+  box-shadow: none;
+}
