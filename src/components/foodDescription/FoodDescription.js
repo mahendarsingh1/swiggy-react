@@ -1,13 +1,8 @@
 // React
-import { useMemo, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Libraries
-import React from "react";
-import PropTypes from "prop-types";
-
 // lodash
-import _keys from "lodash/keys";
 import _toLower from "lodash/toLower";
 import _isEmpty from "lodash/isEmpty";
 import _find from "lodash/find";
@@ -35,10 +30,7 @@ import emptyCartImage from "../../assets/images/cartEmpty.webp";
 // css
 import "./foodDescription.css";
 
-function FoodDescription(props) {
-    const { foodList } = props;
-
-    const categories = useMemo(() => _keys(foodList), [foodList]);
+function FoodDescription() {
     const foodListSectionRefs = useRef([]);
 
     const [cartQuantities, setCartQuantities] = useState({});
@@ -130,7 +122,6 @@ function FoodDescription(props) {
         return (
             <Cart
                 cartQuantities={cartQuantities}
-                foodList={foodList}
                 onIncrementClick={handleIncrementClick}
                 onDecrementClick={handleDecrementClick}
                 onCheckoutClick={handleCheckoutClick}
@@ -140,29 +131,17 @@ function FoodDescription(props) {
 
     return (
         <div className="flex food-description">
-            <Sidebar
-                categories={categories}
-                onCategoryClick={handleCategoryClick}
-            />
+            <Sidebar onCategoryClick={handleCategoryClick} />
             <FoodList
-                foodList={foodList}
                 cartQuantities={cartQuantities}
                 onAddToCart={handleAddToCart}
                 onIncrementClick={handleIncrementClick}
                 onDecrementClick={handleDecrementClick}
                 setRef={setRef}
             />
-            <div className="cart">{renderCart(cartQuantities, foodList)}</div>
+            <div className="cart">{renderCart()}</div>
         </div>
     );
 }
-
-FoodDescription.propTypes = {
-    foodList: PropTypes.object,
-};
-
-FoodDescription.defaultProps = {
-    foodList: {},
-};
 
 export default FoodDescription;

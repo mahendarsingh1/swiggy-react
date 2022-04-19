@@ -1,6 +1,9 @@
 // Libraries
 import PropTypes from "prop-types";
 
+// redux
+import { useSelector } from "react-redux";
+
 // components
 import FoodListSection from "../foodListSection";
 
@@ -30,8 +33,8 @@ const renderFoodListSection =
     };
 
 function FoodList(props) {
+    const foodList = useSelector((store) => store.foodList);
     const {
-        foodList,
         cartQuantities,
         onAddToCart,
         onIncrementClick,
@@ -54,7 +57,6 @@ function FoodList(props) {
 }
 
 FoodList.propTypes = {
-    foodList: PropTypes.object,
     cartQuantities: PropTypes.objectOf(PropTypes.number),
     onAddToCart: PropTypes.func,
     onIncrementClick: PropTypes.func,
@@ -63,7 +65,6 @@ FoodList.propTypes = {
 };
 
 FoodList.deaultProps = {
-    foodList: {},
     cartQuantities: {},
     onAddToCart: _noop,
     onIncrementClick: _noop,

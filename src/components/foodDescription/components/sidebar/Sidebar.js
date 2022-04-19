@@ -2,7 +2,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+// redux
+import { connect } from "react-redux";
+
 // lodash
+import _keys from "lodash/keys";
 import _map from "lodash/map";
 import _startCase from "lodash/startCase";
 import _toLower from "lodash/toLower";
@@ -38,7 +42,9 @@ class Sidebar extends React.Component {
     };
 
     handleClick = (event) => {
-        const { target: { innerText } } = event;
+        const {
+            target: { innerText },
+        } = event;
         const { onCategoryClick } = this.props;
 
         this.setCurrentActiveCategory(innerText);
@@ -68,4 +74,10 @@ Sidebar.defaultProps = {
     onCategoryClick: _noop,
 };
 
-export default Sidebar;
+const mapStateToProps = (state) => {
+    const { foodList } = state;
+    const categories = _keys(foodList);
+    return { categories };
+};
+
+export default connect(mapStateToProps)(Sidebar);
