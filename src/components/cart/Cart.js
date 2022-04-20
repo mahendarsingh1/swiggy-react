@@ -16,13 +16,13 @@ import getFormattedAmount from "../../utility/getFormattedAmount";
 import getFormattedItemsString from "../../utility/getFormattedItemsString";
 
 // helpers
-import { sumOfValues, getTotalAmount } from "./helpers/cart.general";
+import { sumOfValues, getTotalAmount, getFoodListFromState } from "./helpers/cart.general";
 
 // css
 import "./cart.css";
 
 function Cart(props) {
-    const foodList = useSelector((store)=> store.foodList)
+    const foodList = useSelector(getFoodListFromState)
     const {
         cartQuantities,
         onCheckoutClick,

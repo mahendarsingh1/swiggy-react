@@ -22,3 +22,7 @@ export function getTotalAmount(cart, foodList) {
 export function getTotalAmountByQuantity(amount, quantity){
     return amount * quantity;
 }
+
+export function getFoodListFromState(state){
+    return state.foodList;
+}

@@ -48,11 +48,11 @@ class Restaurant extends React.Component {
     }
 
     setRestaurantData = (restaurantData) => {
-        const { dispatch } = this.props;
+        const { setRestaurantDetails, setFoodList } = this.props;
         const restaurantDetails = restaurantReader.restaurantDetails(restaurantData);
         const foodList = restaurantReader.foodList(restaurantData);
-        dispatch(setRestaurantDetails(restaurantDetails));
-        dispatch(setFoodList(foodList));
+        setRestaurantDetails(restaurantDetails);
+        setFoodList(foodList);
     };
 
     setErrorMessage = (err) => {
@@ -144,4 +144,9 @@ const mapStateToProps = (state) => {
     return { restaurantDetails, foodList };
 };
 
-export default connect(mapStateToProps)(Restaurant);
+const mapDispatchToProps = {
+    setRestaurantDetails,
+    setFoodList,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Restaurant);

@@ -1,6 +1,7 @@
 // Libraries
 import React from "react";
 import PropTypes from "prop-types";
+import { defaultMemoize } from "reselect";
 
 // redux
 import { connect } from "react-redux";
@@ -17,6 +18,8 @@ import Paragraph from "../../../../commonComponents/paragraph";
 
 // css
 import "./sidebar.css";
+
+const memoizedKeys = defaultMemoize(_keys);
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -76,7 +79,7 @@ Sidebar.defaultProps = {
 
 const mapStateToProps = (state) => {
     const { foodList } = state;
-    const categories = _keys(foodList);
+    const categories = memoizedKeys(foodList);
     return { categories };
 };
 
