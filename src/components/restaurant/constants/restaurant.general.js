@@ -1,6 +1,4 @@
 export const INITIAL_STATE = {
-    restaurantDetails : null,
-    foodList : null,
     isLoading : true,
     error : null
 }

@@ -1,5 +1,9 @@
 // Libraries
 import React from "react";
+import PropTypes from "prop-types";
+
+// redux
+import { connect } from "react-redux";
 
 // lodash
 import _isEmpty from "lodash/isEmpty";
@@ -16,6 +20,9 @@ import {
     DEFAULT_RESTAURANT_ID,
     GENERAL_ERROR_MESSAGE,
 } from "./constants/restaurant.general";
+
+// actions
+import { setRestaurantDetails, setFoodList } from "./actions";
 
 // helpers
 import fetchRestaurantData from "../../api/fetchRestaurantData";
@@ -41,18 +48,15 @@ class Restaurant extends React.Component {
     }
 
     setRestaurantData = (restaurantData) => {
-        const restaurantDetails =
-            restaurantReader.restaurantDetails(restaurantData);
+        const { setRestaurantDetails, setFoodList } = this.props;
+        const restaurantDetails = restaurantReader.restaurantDetails(restaurantData);
         const foodList = restaurantReader.foodList(restaurantData);
-        this.setState({
-            restaurantDetails,
-            foodList,
-        });
+        setRestaurantDetails(restaurantDetails);
+        setFoodList(foodList);
     };
 
     setErrorMessage = (err) => {
         const { message = GENERAL_ERROR_MESSAGE } = err;
-
         this.setState({ error: message });
     };
 
@@ -61,7 +65,7 @@ class Restaurant extends React.Component {
     };
 
     renderSubheaderAndFoodDescription() {
-        const { restaurantDetails } = this.state;
+        const { restaurantDetails } = this.props;
         const isRestaurantDetailsEmpty = _isEmpty(restaurantDetails);
 
         if (isRestaurantDetailsEmpty) {
@@ -76,7 +80,7 @@ class Restaurant extends React.Component {
     }
 
     renderFoodDescription() {
-        const { foodList } = this.state;
+        const { foodList } = this.props;
         const isFoodListEmpty = _isEmpty(foodList);
 
         if (isFoodListEmpty) {
@@ -99,4 +103,50 @@ class Restaurant extends React.Component {
     }
 }
 
-export default Restaurant;
+Restaurant.propTypes = {
+    restaurantDetails: PropTypes.shape({
+        restaurantImg: PropTypes.string,
+        additionalInfo: PropTypes.shape({
+            ratingInfo: PropTypes.shape({
+                rating: PropTypes.oneOfType([
+                    PropTypes.number,
+                    PropTypes.string,
+                ]),
+                ratingCount: PropTypes.oneOfType([
+                    PropTypes.string,
+                    PropTypes.number,
+                ]),
+            }),
+            deliveryTime: PropTypes.oneOfType([
+                PropTypes.number,
+                PropTypes.string,
+            ]),
+            costInfo: PropTypes.shape({
+                cost: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+                peopleCount: PropTypes.oneOfType([
+                    PropTypes.string,
+                    PropTypes.number,
+                ]),
+            }),
+        }),
+        restaurantInfo: PropTypes.shape({
+            name: PropTypes.string,
+            type: PropTypes.string,
+            city: PropTypes.string,
+        }),
+        offers: PropTypes.arrayOf(PropTypes.string),
+    }),
+    foodList: PropTypes.object,
+};
+
+const mapStateToProps = (state) => {
+    const { restaurantDetails, foodList } = state;
+    return { restaurantDetails, foodList };
+};
+
+const mapDispatchToProps = {
+    setRestaurantDetails,
+    setFoodList,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Restaurant);

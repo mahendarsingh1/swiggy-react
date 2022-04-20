@@ -1,8 +1,13 @@
 // Libraries
 import React from "react";
 import PropTypes from "prop-types";
+import { defaultMemoize } from "reselect";
+
+// redux
+import { connect } from "react-redux";
 
 // lodash
+import _keys from "lodash/keys";
 import _map from "lodash/map";
 import _startCase from "lodash/startCase";
 import _toLower from "lodash/toLower";
@@ -13,6 +18,8 @@ import Paragraph from "../../../../commonComponents/paragraph";
 
 // css
 import "./sidebar.css";
+
+const memoizedKeys = defaultMemoize(_keys);
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -38,7 +45,9 @@ class Sidebar extends React.Component {
     };
 
     handleClick = (event) => {
-        const { target: { innerText } } = event;
+        const {
+            target: { innerText },
+        } = event;
         const { onCategoryClick } = this.props;
 
         this.setCurrentActiveCategory(innerText);
@@ -68,4 +77,10 @@ Sidebar.defaultProps = {
     onCategoryClick: _noop,
 };
 
-export default Sidebar;
+const mapStateToProps = (state) => {
+    const { foodList } = state;
+    const categories = memoizedKeys(foodList);
+    return { categories };
+};
+
+export default connect(mapStateToProps)(Sidebar);

@@ -1,6 +1,9 @@
 // Libraries
 import PropTypes from "prop-types";
 
+// redux
+import { useSelector } from "react-redux";
+
 // components
 import FoodListSection from "../foodListSection";
 
@@ -8,6 +11,9 @@ import FoodListSection from "../foodListSection";
 import _map from "lodash/map";
 import _startCase from "lodash/startCase";
 import _noop from "lodash/noop";
+
+// helpers
+import { getFoodListFromState } from "../../../cart/helpers/cart.general";
 
 // css
 import "./foodList.css";
@@ -30,8 +36,8 @@ const renderFoodListSection =
     };
 
 function FoodList(props) {
+    const foodList = useSelector(getFoodListFromState);
     const {
-        foodList,
         cartQuantities,
         onAddToCart,
         onIncrementClick,
@@ -54,7 +60,6 @@ function FoodList(props) {
 }
 
 FoodList.propTypes = {
-    foodList: PropTypes.object,
     cartQuantities: PropTypes.objectOf(PropTypes.number),
     onAddToCart: PropTypes.func,
     onIncrementClick: PropTypes.func,
@@ -63,7 +68,6 @@ FoodList.propTypes = {
 };
 
 FoodList.deaultProps = {
-    foodList: {},
     cartQuantities: {},
     onAddToCart: _noop,
     onIncrementClick: _noop,

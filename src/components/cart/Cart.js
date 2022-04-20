@@ -1,6 +1,9 @@
 // Libraries
 import PropTypes from "prop-types";
 
+// redux
+import { useSelector } from "react-redux";
+
 // lodash
 import _noop from "lodash/noop";
 
@@ -13,15 +16,15 @@ import getFormattedAmount from "../../utility/getFormattedAmount";
 import getFormattedItemsString from "../../utility/getFormattedItemsString";
 
 // helpers
-import { sumOfValues, getTotalAmount } from "./helpers/cart.general";
+import { sumOfValues, getTotalAmount, getFoodListFromState } from "./helpers/cart.general";
 
 // css
 import "./cart.css";
 
 function Cart(props) {
+    const foodList = useSelector(getFoodListFromState)
     const {
         cartQuantities,
-        foodList,
         onCheckoutClick,
         onIncrementClick,
         onDecrementClick,
@@ -57,7 +60,6 @@ function Cart(props) {
 
 Cart.propTypes = {
     cartQuantities: PropTypes.objectOf(PropTypes.number),
-    foodList: PropTypes.object,
     onCheckoutClick: PropTypes.func,
     onIncrementClick: PropTypes.func,
     onDecrementClick: PropTypes.func,
@@ -65,7 +67,6 @@ Cart.propTypes = {
 
 Cart.defaultProps = {
     cartQuantities: {},
-    foodList: {},
     onCheckoutClick: _noop,
     onIncrementClick: _noop,
     onDecrementClick: _noop,
